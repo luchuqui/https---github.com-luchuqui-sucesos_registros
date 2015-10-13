@@ -1,0 +1,14 @@
+C:\Users\Acer\Documents\Visual Studio 2008\Projects\RegistroIncidentes\RegistroIncidentes\bin\RegistroIncidentes.dll
+C:\Users\Acer\Documents\Visual Studio 2008\Projects\RegistroIncidentes\RegistroIncidentes\bin\RegistroIncidentes.pdb
+C:\Users\Acer\Documents\Visual Studio 2008\Projects\RegistroIncidentes\RegistroIncidentes\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Acer\Documents\Visual Studio 2008\Projects\RegistroIncidentes\RegistroIncidentes\obj\Debug\RegistroIncidentes.dll
+C:\Users\Acer\Documents\Visual Studio 2008\Projects\RegistroIncidentes\RegistroIncidentes\obj\Debug\RegistroIncidentes.pdb
+C:\Users\Acer\Documents\Visual Studio 2008\Projects\RegistroIncidentes\RegistroIncidentes\bin\LibreriaControlador.com.ec.dll
+C:\Users\Acer\Documents\Visual Studio 2008\Projects\RegistroIncidentes\RegistroIncidentes\bin\LibreriaControlador.com.ec.pdb
+D:\Programa sucesos\RegistroIncidentes\RegistroIncidentes\bin\RegistroIncidentes.dll
+D:\Programa sucesos\RegistroIncidentes\RegistroIncidentes\bin\RegistroIncidentes.pdb
+D:\Programa sucesos\RegistroIncidentes\RegistroIncidentes\bin\LibreriaControlador.com.ec.dll
+D:\Programa sucesos\RegistroIncidentes\RegistroIncidentes\bin\LibreriaControlador.com.ec.pdb
+D:\Programa sucesos\RegistroIncidentes\RegistroIncidentes\obj\Debug\ResolveAssemblyReference.cache
+D:\Programa sucesos\RegistroIncidentes\RegistroIncidentes\obj\Debug\RegistroIncidentes.dll
+D:\Programa sucesos\RegistroIncidentes\RegistroIncidentes\obj\Debug\RegistroIncidentes.pdb

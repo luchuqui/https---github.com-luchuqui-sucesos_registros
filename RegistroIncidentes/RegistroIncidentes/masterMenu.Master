@@ -1,0 +1,104 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="masterMenu.master.cs" Inherits="RegistroIncidentes.masterMenu" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Registro Incidentes</title>
+     <link rel="stylesheet" type="text/css" href="estiloMain.css" />
+    <script src="Scripts/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="main.js" type="text/javascript"></script>  
+    <script src="Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.dynDateTime.min.js" type="text/javascript"></script>
+    <script src="Scripts/calendar-es.min.js" type="text/javascript"></script>
+    <link href="Styles/calendar-blue.css" rel="stylesheet" type="text/css" />
+    
+
+<script type="text/javascript">
+    function mostrarDateTimePickerTxbxInicio() {
+
+        $("[id$=txbxFechaInicio]").dynDateTime({
+            showsTime: true,
+            ifFormat: "%m/%d/%Y %H:%M",
+            daFormat: "%l;%M %p, %e %m, %Y",
+            align: "BR",
+            electric: false,
+            singleClick: false,
+            displayArea: ".siblings('.dtcDisplayArea')",
+            button: ".next()"
+        });
+    }
+    function mostrarDateTimePickerTxbxFin() {
+
+        $("[id$=txbxFechaFin]").dynDateTime({
+            showsTime: true,
+            ifFormat: "%m/%d/%Y %H:%M",
+            daFormat: "%l;%M %p, %e %m, %Y",
+            align: "BR",
+            electric: false,
+            singleClick: false,
+            displayArea: ".siblings('.dtcDisplayArea')",
+            button: ".next()"
+        });
+    }
+    function mostrarDateTimePickerTxbxRegistro() {
+        $("[id$=txbxFechaIncidente]").dynDateTime({
+            showsTime: true,
+            ifFormat: "%m/%d/%Y %H:%M",
+            daFormat: "%l;%M %p, %e %m, %Y",
+            align: "BR",
+            electric: false,
+            singleClick: false,
+            displayArea: ".siblings('.dtcDisplayArea')",
+            button: ".next()"
+        });
+    }
+</script>
+</head>
+<body>
+    <form id="formMaster" runat="server">
+    <h1 style = "color:white; text-align: center; background-color: #e94f31; width: 100%;">SISTEMA DE INGRESO DE EVENTOS</h1>
+        <table width ="100%">
+        <tr>
+        <td><asp:Label ID = "lblUsuario" runat = "server" ForeColor="#000099"></asp:Label></td>
+        <td align="right"><asp:ImageButton ID = "btnCerrarSesion" runat = "server" ImageUrl ="~/Imagenes/cerrarSession.gif" OnClick = "cerrar_sesion"/></td>
+        </tr>
+            <tr valign="top">
+                <td style = "width:80px">
+                    <div id="cssmenu">
+	<ul>
+		<li><a href=""><span>Menú Opciones</span></a></li>
+		<li><a href=""><span>Incidente</span></a>
+			<ul>
+			    <li><a href="AsignacionTicket.aspx">Asignar</a></li>
+				<li><a href="EdicionIngresoIncidente.aspx">Registar</a></li>
+			</ul>
+		</li>
+		
+		<li>
+		<a href=""><span>Reportes</span></a>
+		    <ul>
+		    <li><a href="ReporteSucesos.aspx">Incidentes </a></li>
+		    <li><a href="ReporteAsignacionSuceso.aspx">Asigación</a></li>
+		    </ul>
+		</li>
+		<li><a href=""><span>Opciones</span></a>
+		    <ul>
+		    <li><a href="CambioContrasenia.aspx">Cambiar Contraseña</a></li>
+		    </ul>
+		</li>
+	</ul>
+</div>
+                    </td>
+                 <td>
+                    <asp:ContentPlaceHolder ID ="contenedorPrincipal" runat = "server" >
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr valign = "baseline">
+            <td colspan = "2"><h5 style = "color:white; text-align: center; background-color: #e94f31; width: 100%;"> Versión 1.0</h5></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

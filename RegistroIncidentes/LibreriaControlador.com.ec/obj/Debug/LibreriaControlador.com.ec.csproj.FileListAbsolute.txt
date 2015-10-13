@@ -1,0 +1,10 @@
+C:\Users\Acer\Documents\Visual Studio 2008\Projects\RegistroIncidentes\LibreriaControlador.com.ec\bin\Debug\LibreriaControlador.com.ec.dll
+C:\Users\Acer\Documents\Visual Studio 2008\Projects\RegistroIncidentes\LibreriaControlador.com.ec\bin\Debug\LibreriaControlador.com.ec.pdb
+C:\Users\Acer\Documents\Visual Studio 2008\Projects\RegistroIncidentes\LibreriaControlador.com.ec\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Acer\Documents\Visual Studio 2008\Projects\RegistroIncidentes\LibreriaControlador.com.ec\obj\Debug\LibreriaControlador.com.ec.dll
+C:\Users\Acer\Documents\Visual Studio 2008\Projects\RegistroIncidentes\LibreriaControlador.com.ec\obj\Debug\LibreriaControlador.com.ec.pdb
+D:\Programa sucesos\RegistroIncidentes\LibreriaControlador.com.ec\bin\Debug\LibreriaControlador.com.ec.dll
+D:\Programa sucesos\RegistroIncidentes\LibreriaControlador.com.ec\bin\Debug\LibreriaControlador.com.ec.pdb
+D:\Programa sucesos\RegistroIncidentes\LibreriaControlador.com.ec\obj\Debug\ResolveAssemblyReference.cache
+D:\Programa sucesos\RegistroIncidentes\LibreriaControlador.com.ec\obj\Debug\LibreriaControlador.com.ec.dll
+D:\Programa sucesos\RegistroIncidentes\LibreriaControlador.com.ec\obj\Debug\LibreriaControlador.com.ec.pdb
