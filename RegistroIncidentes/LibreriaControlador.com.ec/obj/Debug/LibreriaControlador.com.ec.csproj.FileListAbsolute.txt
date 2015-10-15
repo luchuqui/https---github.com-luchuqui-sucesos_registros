@@ -8,3 +8,8 @@ D:\Programa sucesos\RegistroIncidentes\LibreriaControlador.com.ec\bin\Debug\Libr
 D:\Programa sucesos\RegistroIncidentes\LibreriaControlador.com.ec\obj\Debug\ResolveAssemblyReference.cache
 D:\Programa sucesos\RegistroIncidentes\LibreriaControlador.com.ec\obj\Debug\LibreriaControlador.com.ec.dll
 D:\Programa sucesos\RegistroIncidentes\LibreriaControlador.com.ec\obj\Debug\LibreriaControlador.com.ec.pdb
+C:\Users\Acer\Documents\GitHub\https---github.com-luchuqui-sucesos_registros\RegistroIncidentes\LibreriaControlador.com.ec\bin\Debug\LibreriaControlador.com.ec.dll
+C:\Users\Acer\Documents\GitHub\https---github.com-luchuqui-sucesos_registros\RegistroIncidentes\LibreriaControlador.com.ec\bin\Debug\LibreriaControlador.com.ec.pdb
+C:\Users\Acer\Documents\GitHub\https---github.com-luchuqui-sucesos_registros\RegistroIncidentes\LibreriaControlador.com.ec\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Acer\Documents\GitHub\https---github.com-luchuqui-sucesos_registros\RegistroIncidentes\LibreriaControlador.com.ec\obj\Debug\LibreriaControlador.com.ec.dll
+C:\Users\Acer\Documents\GitHub\https---github.com-luchuqui-sucesos_registros\RegistroIncidentes\LibreriaControlador.com.ec\obj\Debug\LibreriaControlador.com.ec.pdb

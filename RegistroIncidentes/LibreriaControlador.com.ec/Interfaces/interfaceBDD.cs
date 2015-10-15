@@ -21,6 +21,7 @@ namespace LibreriaControlador.com.ec.Interfaces
         List<sopBean> obtenerListaSoap(string estado);
         List<sucesoBean> obtenerListaSuceso(string codigoIncidente, UsuarioBean usuario);
         List<SucesoReporteBean> obtenerListaSucesoReporte(string codigoIncidente, UsuarioBean usuario);
+        List<SucesoReporteBean> obtenerListaNoAtendidosReporte(string codigoIncidente, UsuarioBean usuario);
         List<SucesoReporteBean> obtenerListaSucesoReportePorFecha(DateTime fechaInicio,DateTime fechaFin, UsuarioBean usuario,bool asignado);
         List<TierUnoBean> obtenerTierUno(string estado);
         List<TierDosBean> obtenerTierDos(TierUnoBean tierUno, string estado);

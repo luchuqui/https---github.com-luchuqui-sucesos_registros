@@ -40,6 +40,7 @@ OnClick = "nuevo_registro_incidente" TabIndex="5"/></td>
     <td colspan = "4"><asp:Label ID = "lblMensajeError" runat = "server" 
             ForeColor="Red"></asp:Label></td>
     </tr>
+    
 </table>
 </div>
 <br />

@@ -622,7 +622,7 @@ namespace LibreriaControlador.com.ec.BaseDatos
                 cmd = new SqlCommand("insertar_incidente_sp", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@codigo_usuario", suceso.codigo_usuario);
-                cmd.Parameters.AddWithValue("@codigo_incidente", suceso.codigoIncidente);
+                cmd.Parameters.AddWithValue("@codigo_incidente", suceso.codigoIncidente.Trim());
                 cmd.Parameters.AddWithValue("@recibido_sistemas", suceso.recibidoSistemas);
                 cmd.Parameters.AddWithValue("@codigo_tipo_sistemas", suceso.codigoTipoSistemas);
                 cmd.Parameters.AddWithValue("@fecha_reporte_incidente", suceso.registroIncidente);
@@ -647,7 +647,7 @@ namespace LibreriaControlador.com.ec.BaseDatos
                 cmd = new SqlCommand("actualizar_incidente_sp", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@codigo_usuario", suceso.codigo_usuario);
-                cmd.Parameters.AddWithValue("@codigo_incidente", suceso.codigoIncidente);
+                cmd.Parameters.AddWithValue("@codigo_incidente", suceso.codigoIncidente.Trim());
                 cmd.Parameters.AddWithValue("@recibido_sistemas", suceso.recibidoSistemas);
                 cmd.Parameters.AddWithValue("@codigo_tipo_sistemas", suceso.codigoTipoSistemas);
                 cmd.Parameters.AddWithValue("@fecha_reporte_incidente", suceso.registroIncidente);
@@ -876,6 +876,68 @@ namespace LibreriaControlador.com.ec.BaseDatos
                 throw new Exception(ex.Message);
             }
 
+        }
+
+        #endregion
+
+        #region Miembros de interfaceBDD
+
+
+        public List<SucesoReporteBean> obtenerListaNoAtendidosReporte(string codigoIncidente, UsuarioBean usuario)
+        {
+            SqlCommand cmd = null;
+            cmd = new SqlCommand("obtener_registro_asignado_reporte_sp", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@codigo_incidente", codigoIncidente);
+            cmd.Parameters.AddWithValue("@codigo_usuario", usuario.getCodigoUsuario());
+            cmd.Parameters.AddWithValue("@nivel_acceso", usuario.getNivelAcceso());
+            List<SucesoReporteBean> selecciones = new List<SucesoReporteBean>();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable tb = new DataTable("SucesoBean");
+                da.Fill(tb);
+                for (int i = 0; i < tb.Rows.Count; i++)
+                {
+                    SucesoReporteBean seleccion = new SucesoReporteBean();
+                    seleccion.documento = tb.Rows[i][0].ToString();
+                    seleccion.codigo_usuario = tb.Rows[i][1].ToString();
+                    seleccion.codigoIncidente = tb.Rows[i][2].ToString();
+                    seleccion.recibidoSistemas = bool.Parse(tb.Rows[i][3].ToString());
+                    seleccion.codigoTipoSistemas = tb.Rows[i][4].ToString();
+                    seleccion.registroIncidente = DateTime.Parse(tb.Rows[i][5].ToString()).ToString("MM/dd/yyyy HH:mm");
+                    seleccion.reporteIncidente = DateTime.Parse(tb.Rows[i][6].ToString()).ToString("MM/dd/yyyy HH:mm");
+                    seleccion.primerInteraccion = DateTime.Parse(tb.Rows[i][7].ToString()).ToString("MM/dd/yyyy HH:mm");
+                    seleccion.codigoGrupoAsignado = tb.Rows[i][8].ToString();
+                    seleccion.codigoDato = tb.Rows[i][9].ToString();
+                    seleccion.codigoSop = tb.Rows[i][10].ToString();
+                    seleccion.estadoIncidente = tb.Rows[i][11].ToString();
+                    seleccion.codigoTierUno = tb.Rows[i][12].ToString();
+                    seleccion.codigoTierDos = tb.Rows[i][13].ToString();
+                    seleccion.codigoTierTres = tb.Rows[i][14].ToString();
+                    seleccion.enviadoSistmas = bool.Parse(tb.Rows[i][15].ToString());
+                    seleccion.fechaCierre = DateTime.Parse(tb.Rows[i][16].ToString()).ToString("MM/dd/yyyy HH:mm");
+                    seleccion.descripcionincidente = tb.Rows[i][17].ToString();
+                    seleccion.pais = tb.Rows[i][18].ToString();
+                    seleccion.estadistica = bool.Parse(tb.Rows[i][19].ToString());
+                    selecciones.Add(seleccion);
+                } return selecciones;
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                logs.escritura_archivo_string_ex(ex);
+                throw new ExpObtenerRegistro(ex.Message);
+            }
+            catch (ArgumentNullException ex)
+            {
+                logs.escritura_archivo_string_ex(ex);
+                throw new ExpObtenerRegistro(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                logs.escritura_archivo_string_ex(ex);
+                throw new Exception(ex.Message);
+            }
         }
 
         #endregion

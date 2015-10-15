@@ -33,11 +33,15 @@ namespace RegistroIncidentes
             {
                 this.mensajeError.Text = usuarioLogin.getPassword();
             }
-            else {
+            else if (usuarioLogin.getEstadoUsuario().Equals("A"))
+            {
                 Session[GlobalSistema.usuarioSesionSistema] = usuarioLogin;
                 usuarioLogin.setFechaUltimoAcceso(System.DateTime.Now);
                 GlobalSistema.sistema.insertar_usuario_sistema(usuarioLogin, false);
                 Response.Redirect("EdicionIngresoIncidente.aspx");
+            }
+            else {
+                this.mensajeError.Text = "Usuario inabilitado";
             }
         }
     }

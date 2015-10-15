@@ -21,7 +21,7 @@
     <table width = "50%" align="center" >
     <tr>
         <td colspan = "2" style="background-color: #e94f31">
-        <h2 style="text-align: center; background-color: #e94f31;" class="style1">Accesos al Sistema</h2>
+        <h2 style="text-align: center; background-color: #e94f31;" class="style1">Acceso al Sistema</h2>
         </td>
     </tr>
     <tr>

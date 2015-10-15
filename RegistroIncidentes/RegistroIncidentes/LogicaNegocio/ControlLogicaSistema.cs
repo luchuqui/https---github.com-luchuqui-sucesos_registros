@@ -100,7 +100,7 @@ namespace RegistroIncidentes.LogicaNegocio
             List<UsuarioBean> lsUsuarioActivos = new List<UsuarioBean>();
             mibase.cerrar_conexion_base();
             foreach(UsuarioBean usr in lsUsuario){
-                if (usr.getEstadoUsuario().Equals("A") && usr.getNivelAcceso() != 0)
+                if (usr.getEstadoUsuario().Equals("A"))
                 {
                     lsUsuarioActivos.Add(usr);
                 }
@@ -169,6 +169,25 @@ namespace RegistroIncidentes.LogicaNegocio
             try
             {
                 sucesos = mibase.obtenerListaSucesoReporte(codigoIncidente, usuario);
+            }
+            catch (ExpObtenerRegistro ex)
+            {
+                string msstr = ex.Message;
+            }
+            finally
+            {
+                mibase.cerrar_conexion_base();
+            }
+            return sucesos;
+        }
+
+        public List<SucesoReporteBean> obtenerIncidentesAsignadosPorUsuario(string codigoIncidente, UsuarioBean usuario)
+        {
+            mibase.abrir_conexion_base();
+            List<SucesoReporteBean> sucesos = null;
+            try
+            {
+                sucesos = mibase.obtenerListaNoAtendidosReporte(codigoIncidente, usuario);
             }
             catch (ExpObtenerRegistro ex)
             {

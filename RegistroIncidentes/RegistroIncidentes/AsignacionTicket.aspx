@@ -3,7 +3,7 @@
 <asp:Content ID = "contenido" runat = "server" ContentPlaceHolderID = "contenedorPrincipal">
 <br />
 <div align="center">
-<h2>Asignción de Ticks a Usuarios</h2>
+<h2>Asignación de Ticks a Usuarios</h2>
 </div>
 <table>
     <tr>

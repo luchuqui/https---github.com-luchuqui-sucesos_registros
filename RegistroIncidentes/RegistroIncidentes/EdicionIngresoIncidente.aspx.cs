@@ -114,7 +114,7 @@ namespace RegistroIncidentes
         public void cargar_datos_sucesos_usuario() {
             if (!IsPostBack)
             {
-                lsSucesos = GlobalSistema.sistema.obtenerIncidentesReportePorUsuario("%", usuarioSesion);
+                lsSucesos = GlobalSistema.sistema.obtenerIncidentesAsignadosPorUsuario("%", usuarioSesion);
             }
             GridViewIncidente.DataSource = lsSucesos;
             GridViewIncidente.DataBind();

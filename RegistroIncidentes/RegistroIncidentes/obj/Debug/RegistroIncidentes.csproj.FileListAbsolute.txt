@@ -12,3 +12,10 @@ D:\Programa sucesos\RegistroIncidentes\RegistroIncidentes\bin\LibreriaControlado
 D:\Programa sucesos\RegistroIncidentes\RegistroIncidentes\obj\Debug\ResolveAssemblyReference.cache
 D:\Programa sucesos\RegistroIncidentes\RegistroIncidentes\obj\Debug\RegistroIncidentes.dll
 D:\Programa sucesos\RegistroIncidentes\RegistroIncidentes\obj\Debug\RegistroIncidentes.pdb
+C:\Users\Acer\Documents\GitHub\https---github.com-luchuqui-sucesos_registros\RegistroIncidentes\RegistroIncidentes\bin\RegistroIncidentes.dll
+C:\Users\Acer\Documents\GitHub\https---github.com-luchuqui-sucesos_registros\RegistroIncidentes\RegistroIncidentes\bin\RegistroIncidentes.pdb
+C:\Users\Acer\Documents\GitHub\https---github.com-luchuqui-sucesos_registros\RegistroIncidentes\RegistroIncidentes\bin\LibreriaControlador.com.ec.dll
+C:\Users\Acer\Documents\GitHub\https---github.com-luchuqui-sucesos_registros\RegistroIncidentes\RegistroIncidentes\bin\LibreriaControlador.com.ec.pdb
+C:\Users\Acer\Documents\GitHub\https---github.com-luchuqui-sucesos_registros\RegistroIncidentes\RegistroIncidentes\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Acer\Documents\GitHub\https---github.com-luchuqui-sucesos_registros\RegistroIncidentes\RegistroIncidentes\obj\Debug\RegistroIncidentes.dll
+C:\Users\Acer\Documents\GitHub\https---github.com-luchuqui-sucesos_registros\RegistroIncidentes\RegistroIncidentes\obj\Debug\RegistroIncidentes.pdb

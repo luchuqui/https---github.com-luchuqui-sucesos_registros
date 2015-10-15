@@ -217,13 +217,18 @@ namespace RegistroIncidentes
             UsuarioBean usrTmp = new UsuarioBean();
             usrTmp.setCodigoUsuario(0);
             List<SucesoReporteBean> lsSuceso = GlobalSistema.sistema.obtenerIncidentesReportePorUsuario(txbxNumIncidente.Text,usrTmp);
-                if (lsSuceso.Count > 0) {
-                    if (!sesionUsuario.getNumeroDocumento().Equals(lsSuceso[0].documento))
-                    {
-                        lblMensajeError.Text = "Suceso registrado, con usuario " + lsSuceso[0].codigo_usuario + " solo este usuario puede editar";
-                        return;
-                    }
+            if (lsSuceso.Count > 0 && sesionUsuario.getNivelAcceso() != 0)
+            {
+                suceso.codigo_usuario = GlobalSistema.sistema.obtenerDatosUsuario(lblUsuarioRegistra.Text, true).getCodigoUsuario();
+                if (!sesionUsuario.getNumeroDocumento().Equals(lsSuceso[0].documento))
+                {
+                    lblMensajeError.Text = "Suceso registrado, con usuario " + lsSuceso[0].codigo_usuario + " solo este usuario puede editar";
+                    return;
                 }
+            }
+            else {
+                suceso.codigo_usuario = sesionUsuario.getCodigoUsuario();
+            }
             //DateTime fechaRegistro = Convert.ToDateTime(this.txbxFechaIncidente.Text);
             DateTime fechaRegistro = DateTime.ParseExact(this.txbxFechaIncidente.Text, "MM/dd/yyyy HH:mm", CultureInfo.CreateSpecificCulture("en-US"));
             suceso.registroIncidente = fechaRegistro;
@@ -276,7 +281,6 @@ namespace RegistroIncidentes
             suceso.codigoTierDos = Convert.ToInt16(this.lsBxTierII.SelectedValue);
             suceso.codigoTierTres = Convert.ToInt16(this.lsBxTierIII.SelectedValue);
             suceso.codigoTipoSistemas = Convert.ToInt16(this.lsBxTipoSistemas.SelectedValue);
-            suceso.codigo_usuario = GlobalSistema.sistema.obtenerDatosUsuario(lblUsuarioRegistra.Text,true).getCodigoUsuario();
             suceso.codigo_usuario_reporta = GlobalSistema.sistema.obtenerDatosUsuario(lblUsuarioAsigna.Text, true).getCodigoUsuario();
             suceso.enviadoSistmas = chBxEnviado.Checked;
             suceso.recibidoSistemas = chbxRebido.Checked;
