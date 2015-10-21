@@ -27,5 +27,6 @@ namespace LibreriaControlador.com.ec.BeanObjetos
         public string pais { get; set; }
         public bool estadistica { get; set; }
         public int codigo_usuario_reporta { get; set; }
+        public string etiqueta { get; set; }
     }
 }

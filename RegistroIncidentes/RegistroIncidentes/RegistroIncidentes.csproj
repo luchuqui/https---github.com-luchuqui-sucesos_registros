@@ -124,6 +124,13 @@
     <Compile Include="ReporteSucesos.aspx.designer.cs">
       <DependentUpon>ReporteSucesos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SubirArchivo.aspx.cs">
+      <DependentUpon>SubirArchivo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubirArchivo.aspx.designer.cs">
+      <DependentUpon>SubirArchivo.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="masterMenu.Master" />
@@ -157,6 +164,7 @@
     <Content Include="AsignacionTicket.aspx" />
     <Content Include="CambioContrasenia.aspx" />
     <Content Include="ReporteAsignacionSuceso.aspx" />
+    <Content Include="SubirArchivo.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -176,7 +184,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50315</DevelopmentServerPort>
+          <DevelopmentServerPort>62822</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

@@ -271,6 +271,7 @@ namespace RegistroIncidentes.LogicaNegocio
                 else
                 {
                     // insertamos
+                    sucesoUsr.etiqueta = "";
                     mibase.insertarActulizarSuceso(sucesoUsr, true);
                 }
                 mensaje = "Proceso realizado con éxito";
@@ -423,5 +424,26 @@ namespace RegistroIncidentes.LogicaNegocio
             }
             return grupos;
         }
+
+        public List<ParametroConfiguracion> obtenerListParametro(string estado, int codigoParametro)
+        {
+            List<ParametroConfiguracion> parametros = null;
+            mibase.abrir_conexion_base();
+            try
+            {
+                parametros = mibase.obtenerParametroConfiguracion(codigoParametro,estado);
+            }
+            catch (ExpObtenerRegistro e)
+            {
+                string ms = e.Message;
+            }
+            finally
+            {
+                mibase.cerrar_conexion_base();
+            }
+            return parametros;
+        }
+
+
     }
 }

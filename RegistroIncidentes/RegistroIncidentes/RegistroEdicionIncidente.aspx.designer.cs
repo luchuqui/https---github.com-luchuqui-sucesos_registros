@@ -167,6 +167,15 @@ namespace RegistroIncidentes {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
+        /// Control chbxEstadistica.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chbxEstadistica;
+        
+        /// <summary>
         /// Control lsBxTierUno.
         /// </summary>
         /// <remarks>
@@ -183,6 +192,15 @@ namespace RegistroIncidentes {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validadorTierI;
+        
+        /// <summary>
+        /// Control chBxEnviado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chBxEnviado;
         
         /// <summary>
         /// Control lsBxTierII.
@@ -230,15 +248,6 @@ namespace RegistroIncidentes {
         protected global::System.Web.UI.WebControls.TextBox txbxPais;
         
         /// <summary>
-        /// Control chBxEnviado.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chBxEnviado;
-        
-        /// <summary>
         /// Control txbxFechaFin.
         /// </summary>
         /// <remarks>
@@ -257,13 +266,13 @@ namespace RegistroIncidentes {
         protected global::System.Web.UI.WebControls.TextBox txbxObservacion;
         
         /// <summary>
-        /// Control chbxEstadistica.
+        /// Control txbxEtiqueta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chbxEstadistica;
+        protected global::System.Web.UI.WebControls.TextBox txbxEtiqueta;
         
         /// <summary>
         /// Control lblMensajeError.

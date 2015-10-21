@@ -8,6 +8,7 @@ using LibreriaControlador.com.ec.Excepciones;
 using System.Data;
 using LibreriaControlador.com.ec.BeanObjetos;
 using LibreriaControlador.com.ec.Interfaces;
+using System.Globalization;
 
 namespace LibreriaControlador.com.ec.BaseDatos
 {
@@ -16,6 +17,7 @@ namespace LibreriaControlador.com.ec.BaseDatos
         private string url = string.Empty;
         private SqlConnection conn; //Establecimiento de conexion a la base de datos.
         private LecturaEscrituraArchivo logs;
+        private string formatoFecha;
 
         public ConexionBDD(string url, string pathGuardar)
         {
@@ -39,6 +41,7 @@ namespace LibreriaControlador.com.ec.BaseDatos
             try
             {
                 conn.Open();
+                formatoFecha = obtenerParametroConfiguracion(1, "A")[0].valor;
 
             }
             catch (SqlException e)
@@ -469,6 +472,7 @@ namespace LibreriaControlador.com.ec.BaseDatos
                     seleccion.pais = tb.Rows[i][17].ToString();
                     seleccion.estadistica = bool.Parse(tb.Rows[i][18].ToString());
                     seleccion.codigo_usuario_reporta = Convert.ToInt16(tb.Rows[i][19].ToString());
+                    seleccion.etiqueta = tb.Rows[i][20].ToString();
                     selecciones.Add(seleccion);
                 } return selecciones;
             }
@@ -640,6 +644,7 @@ namespace LibreriaControlador.com.ec.BaseDatos
                 cmd.Parameters.AddWithValue("@pais", suceso.pais);
                 cmd.Parameters.AddWithValue("@estadistica", suceso.estadistica);
                 cmd.Parameters.AddWithValue("@usuario_asigna", suceso.codigo_usuario_reporta);
+                cmd.Parameters.AddWithValue("@etiqueta", suceso.etiqueta);
             }
             else
             { //false actuliza
@@ -665,6 +670,7 @@ namespace LibreriaControlador.com.ec.BaseDatos
                 cmd.Parameters.AddWithValue("@pais", suceso.pais);
                 cmd.Parameters.AddWithValue("@estadistica", suceso.estadistica);
                 cmd.Parameters.AddWithValue("@usuario_asigna", suceso.codigo_usuario_reporta);
+                cmd.Parameters.AddWithValue("@etiqueta", suceso.etiqueta);
             }
 
             try
@@ -774,9 +780,9 @@ namespace LibreriaControlador.com.ec.BaseDatos
                     seleccion.codigoIncidente = tb.Rows[i][2].ToString();
                     seleccion.recibidoSistemas = bool.Parse(tb.Rows[i][3].ToString());
                     seleccion.codigoTipoSistemas = tb.Rows[i][4].ToString();
-                    seleccion.registroIncidente = DateTime.Parse(tb.Rows[i][5].ToString()).ToString("MM/dd/yyyy HH:mm");
-                    seleccion.reporteIncidente = DateTime.Parse(tb.Rows[i][6].ToString()).ToString("MM/dd/yyyy HH:mm");
-                    seleccion.primerInteraccion = DateTime.Parse(tb.Rows[i][7].ToString()).ToString("MM/dd/yyyy HH:mm");
+                    seleccion.registroIncidente = DateTime.Parse(tb.Rows[i][5].ToString()).ToString(formatoFecha, CultureInfo.InvariantCulture);
+                    seleccion.reporteIncidente = DateTime.Parse(tb.Rows[i][6].ToString()).ToString(formatoFecha, CultureInfo.InvariantCulture);
+                    seleccion.primerInteraccion = DateTime.Parse(tb.Rows[i][7].ToString()).ToString(formatoFecha, CultureInfo.InvariantCulture);
                     seleccion.codigoGrupoAsignado = tb.Rows[i][8].ToString();
                     seleccion.codigoDato = tb.Rows[i][9].ToString();
                     seleccion.codigoSop = tb.Rows[i][10].ToString();
@@ -785,10 +791,13 @@ namespace LibreriaControlador.com.ec.BaseDatos
                     seleccion.codigoTierDos = tb.Rows[i][13].ToString();
                     seleccion.codigoTierTres = tb.Rows[i][14].ToString();
                     seleccion.enviadoSistmas = bool.Parse(tb.Rows[i][15].ToString());
-                    seleccion.fechaCierre = DateTime.Parse(tb.Rows[i][16].ToString()).ToString("MM/dd/yyyy HH:mm");
+                    seleccion.fechaCierre = DateTime.Parse(tb.Rows[i][16].ToString()).ToString(formatoFecha, CultureInfo.InvariantCulture);
                     seleccion.descripcionincidente = tb.Rows[i][17].ToString();
                     seleccion.pais = tb.Rows[i][18].ToString();
                     seleccion.estadistica = bool.Parse(tb.Rows[i][19].ToString());
+                    seleccion.etiqueta = tb.Rows[i][20].ToString();
+                    seleccion.sla_respuesta = tb.Rows[i][21].ToString();
+                    seleccion.sls_solucion = tb.Rows[i][22].ToString();
                     selecciones.Add(seleccion);
                 } return selecciones;
             }
@@ -841,9 +850,9 @@ namespace LibreriaControlador.com.ec.BaseDatos
                     seleccion.codigoIncidente = tb.Rows[i][2].ToString();
                     seleccion.recibidoSistemas = bool.Parse(tb.Rows[i][3].ToString());
                     seleccion.codigoTipoSistemas = tb.Rows[i][4].ToString();
-                    seleccion.registroIncidente = DateTime.Parse(tb.Rows[i][5].ToString()).ToString("MM/dd/yyyy HH:mm"); ;
-                    seleccion.reporteIncidente = DateTime.Parse(tb.Rows[i][6].ToString()).ToString("MM/dd/yyyy HH:mm"); ;
-                    seleccion.primerInteraccion = DateTime.Parse(tb.Rows[i][7].ToString()).ToString("MM/dd/yyyy HH:mm"); ;
+                    seleccion.registroIncidente = DateTime.Parse(tb.Rows[i][5].ToString()).ToString(formatoFecha, CultureInfo.InvariantCulture);
+                    seleccion.reporteIncidente = DateTime.Parse(tb.Rows[i][6].ToString()).ToString(formatoFecha, CultureInfo.InvariantCulture);
+                    seleccion.primerInteraccion = DateTime.Parse(tb.Rows[i][7].ToString()).ToString(formatoFecha, CultureInfo.InvariantCulture);
                     seleccion.codigoGrupoAsignado = tb.Rows[i][8].ToString();
                     seleccion.codigoDato = tb.Rows[i][9].ToString();
                     seleccion.codigoSop = tb.Rows[i][10].ToString();
@@ -852,11 +861,14 @@ namespace LibreriaControlador.com.ec.BaseDatos
                     seleccion.codigoTierDos = tb.Rows[i][13].ToString();
                     seleccion.codigoTierTres = tb.Rows[i][14].ToString();
                     seleccion.enviadoSistmas = bool.Parse(tb.Rows[i][15].ToString());
-                    seleccion.fechaCierre = DateTime.Parse(tb.Rows[i][16].ToString()).ToString("MM/dd/yyyy HH:mm");;
+                    seleccion.fechaCierre = DateTime.Parse(tb.Rows[i][16].ToString()).ToString(formatoFecha, CultureInfo.InvariantCulture);
                     seleccion.descripcionincidente = tb.Rows[i][17].ToString();
                     seleccion.pais = tb.Rows[i][18].ToString();
                     seleccion.estadistica = bool.Parse(tb.Rows[i][19].ToString());
                     seleccion.usuarioAsigna = tb.Rows[i][20].ToString();
+                    seleccion.etiqueta = tb.Rows[i][21].ToString();
+                    seleccion.sla_respuesta = tb.Rows[i][22].ToString();
+                    seleccion.sls_solucion = tb.Rows[i][23].ToString();
                     selecciones.Add(seleccion);
                 } return selecciones;
             }
@@ -905,9 +917,9 @@ namespace LibreriaControlador.com.ec.BaseDatos
                     seleccion.codigoIncidente = tb.Rows[i][2].ToString();
                     seleccion.recibidoSistemas = bool.Parse(tb.Rows[i][3].ToString());
                     seleccion.codigoTipoSistemas = tb.Rows[i][4].ToString();
-                    seleccion.registroIncidente = DateTime.Parse(tb.Rows[i][5].ToString()).ToString("MM/dd/yyyy HH:mm");
-                    seleccion.reporteIncidente = DateTime.Parse(tb.Rows[i][6].ToString()).ToString("MM/dd/yyyy HH:mm");
-                    seleccion.primerInteraccion = DateTime.Parse(tb.Rows[i][7].ToString()).ToString("MM/dd/yyyy HH:mm");
+                    seleccion.registroIncidente = DateTime.Parse(tb.Rows[i][5].ToString()).ToString(formatoFecha, CultureInfo.InvariantCulture);
+                    seleccion.reporteIncidente = DateTime.Parse(tb.Rows[i][6].ToString()).ToString(formatoFecha, CultureInfo.InvariantCulture);
+                    seleccion.primerInteraccion = DateTime.Parse(tb.Rows[i][7].ToString()).ToString(formatoFecha, CultureInfo.InvariantCulture);
                     seleccion.codigoGrupoAsignado = tb.Rows[i][8].ToString();
                     seleccion.codigoDato = tb.Rows[i][9].ToString();
                     seleccion.codigoSop = tb.Rows[i][10].ToString();
@@ -916,10 +928,56 @@ namespace LibreriaControlador.com.ec.BaseDatos
                     seleccion.codigoTierDos = tb.Rows[i][13].ToString();
                     seleccion.codigoTierTres = tb.Rows[i][14].ToString();
                     seleccion.enviadoSistmas = bool.Parse(tb.Rows[i][15].ToString());
-                    seleccion.fechaCierre = DateTime.Parse(tb.Rows[i][16].ToString()).ToString("MM/dd/yyyy HH:mm");
+                    seleccion.fechaCierre = DateTime.Parse(tb.Rows[i][16].ToString()).ToString(formatoFecha, CultureInfo.InvariantCulture);
                     seleccion.descripcionincidente = tb.Rows[i][17].ToString();
                     seleccion.pais = tb.Rows[i][18].ToString();
                     seleccion.estadistica = bool.Parse(tb.Rows[i][19].ToString());
+                    seleccion.etiqueta = tb.Rows[i][20].ToString();
+                    selecciones.Add(seleccion);
+                } return selecciones;
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                logs.escritura_archivo_string_ex(ex);
+                throw new ExpObtenerRegistro(ex.Message);
+            }
+            catch (ArgumentNullException ex)
+            {
+                logs.escritura_archivo_string_ex(ex);
+                throw new ExpObtenerRegistro(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                logs.escritura_archivo_string_ex(ex);
+                throw new Exception(ex.Message);
+            }
+        }
+
+        #endregion
+
+        #region Miembros de interfaceBDD
+
+
+        public List<ParametroConfiguracion> obtenerParametroConfiguracion(int codigoParametro, string estado)
+        {
+            SqlCommand cmd = null;
+            cmd = new SqlCommand("obtener_parametro_configuracion_sp", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@codigo_parametro", codigoParametro);
+            cmd.Parameters.AddWithValue("@estado_registro", estado);
+            List<ParametroConfiguracion> selecciones = new List<ParametroConfiguracion>();
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable tb = new DataTable("ParametroBean");
+                da.Fill(tb);
+                for (int i = 0; i < tb.Rows.Count; i++)
+                {
+                    ParametroConfiguracion seleccion = new ParametroConfiguracion();
+                    seleccion.id_parametro = int.Parse(tb.Rows[i][0].ToString());
+                    seleccion.descripcion = tb.Rows[i][1].ToString();
+                    seleccion.valor = tb.Rows[i][2].ToString();
+                    seleccion.estado = tb.Rows[i][3].ToString();
                     selecciones.Add(seleccion);
                 } return selecciones;
             }

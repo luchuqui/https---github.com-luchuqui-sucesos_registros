@@ -54,17 +54,28 @@
         });
     }
 </script>
+    <style type="text/css">
+        .style1
+        {
+            width: 80px;
+            height: 492px;
+        }
+        .style2
+        {
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
     <form id="formMaster" runat="server">
     <h1 style = "color:white; text-align: center; background-color: #e94f31; width: 100%;">SISTEMA DE INGRESO DE EVENTOS</h1>
         <table width ="100%">
         <tr>
-        <td><asp:Label ID = "lblUsuario" runat = "server" ForeColor="#000099"></asp:Label></td>
-        <td align="right"><asp:ImageButton ID = "btnCerrarSesion" runat = "server" ImageUrl ="~/Imagenes/cerrarSession.gif" OnClick = "cerrar_sesion"/></td>
+        <td><asp:Label ID = "lblUsuario" runat = "server" ForeColor="#000000" Width = "100%"></asp:Label></td>
+        <td align="right"><asp:ImageButton ID = "btnCerrarSesion" runat = "server" ImageUrl ="~/Imagenes/cerrarSession.gif" OnClick = "cerrar_sesion" TabIndex = "20"/></td>
         </tr>
             <tr valign="top">
-                <td style = "width:80px">
+                <td class="style1">
                     <div id="cssmenu">
 	<ul>
 		<li><a href=""><span>Menú Opciones</span></a></li>
@@ -80,6 +91,7 @@
 		    <ul>
 		    <li><a href="ReporteSucesos.aspx">Incidentes </a></li>
 		    <li><a href="ReporteAsignacionSuceso.aspx">Asigación</a></li>
+		    <li><a href="SubirArchivo.aspx">Comparar Incidencias</a></li>
 		    </ul>
 		</li>
 		<li><a href=""><span>Opciones</span></a>
@@ -90,13 +102,14 @@
 	</ul>
 </div>
                     </td>
-                 <td>
+                 <td class="style2">
                     <asp:ContentPlaceHolder ID ="contenedorPrincipal" runat = "server" >
                     </asp:ContentPlaceHolder>
                 </td>
             </tr>
             <tr valign = "baseline">
-            <td colspan = "2"><h5 style = "color:white; text-align: center; background-color: #e94f31; width: 100%;"> Versión 1.0</h5></td>
+            <td colspan = "2" align = "center"><asp:Label ID = "lblPiePagina" runat = "server" 
+                    BackColor="#E94F31" Width = "100%" ForeColor="White"></asp:Label></td>
             </tr>
         </table>
     </form>

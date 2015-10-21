@@ -50,6 +50,7 @@
     <Compile Include="BeanObjetos\EstadoIncidenteBean.cs" />
     <Compile Include="BeanObjetos\GrupoAsignadoBean.cs" />
     <Compile Include="BeanObjetos\NivelIncidenteBean.cs" />
+    <Compile Include="BeanObjetos\ParametroConfiguracion.cs" />
     <Compile Include="BeanObjetos\sopBean.cs" />
     <Compile Include="BeanObjetos\sucesoBean.cs" />
     <Compile Include="BeanObjetos\SucesoReporteBean.cs" />

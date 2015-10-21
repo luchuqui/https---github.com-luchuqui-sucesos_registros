@@ -22,6 +22,7 @@ namespace RegistroIncidentes
         {
             if (!IsPostBack)
             {
+                lblPiePagina.Text = GlobalSistema.sistema.obtenerListParametro("A",4)[0].valor;
                 sesionU = (UsuarioBean)Session[GlobalSistema.usuarioSesionSistema];
                 try
                 {
@@ -29,7 +30,7 @@ namespace RegistroIncidentes
                     {
                         Response.Redirect("Defult.aspx");
                     }
-                    lblUsuario.Text = "Conectado : " + sesionU.getApellido() + " " + sesionU.getNombres();
+                    lblUsuario.Text = "Conectado : " +sesionU.getNumeroDocumento()+":"+ sesionU.getApellido() + " " + sesionU.getNombres();
                 }
                 catch (NullReferenceException ex)
                 {

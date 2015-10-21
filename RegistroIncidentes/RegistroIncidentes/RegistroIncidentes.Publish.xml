@@ -1,33 +1,33 @@
 <publishData>
   <publishTarget publishUrl="C:\www\RegistroIncidentes\">
     <file relUrl="WebMenu.sitemap" publishTime="10/14/2015 20:43:57" />
-    <file relUrl="bin/RegistroIncidentes.dll" publishTime="10/15/2015 06:01:08" />
+    <file relUrl="bin/RegistroIncidentes.pdb" publishTime="10/18/2015 18:40:02" />
     <file relUrl="Scripts/jquery-latest.min.js" publishTime="10/14/2015 20:43:57" />
     <file relUrl="RegistroUsuario.aspx" publishTime="10/14/2015 20:43:57" />
-    <file relUrl="Styles/calendar-blue.css" publishTime="10/14/2015 20:43:57" />
+    <file relUrl="bin/LibreriaControlador.com.ec.dll" publishTime="10/18/2015 18:40:02" />
     <file relUrl="Web.config" publishTime="10/14/2015 23:51:28" />
-    <file relUrl="bin/LibreriaControlador.com.ec.pdb" publishTime="10/15/2015 06:01:08" />
+    <file relUrl="Imagenes/cerrarSession.gif" publishTime="10/14/2015 20:43:57" />
+    <file relUrl="bin/LibreriaControlador.com.ec.pdb" publishTime="10/18/2015 18:40:02" />
     <file relUrl="Scripts/jquery-1.4.1.min.js" publishTime="10/14/2015 20:43:57" />
     <file relUrl="Scripts/calendar-es.min.js" publishTime="10/14/2015 20:43:57" />
     <file relUrl="Scripts/jquery-1.4.1.js" publishTime="10/14/2015 20:43:57" />
     <file relUrl="AsignacionTicket.aspx" publishTime="10/14/2015 23:56:12" />
     <file relUrl="Scripts/jquery-1.4.1-vsdoc.js" publishTime="10/14/2015 20:43:57" />
-    <file relUrl="bin/RegistroIncidentes.pdb" publishTime="10/15/2015 06:01:08" />
-    <file relUrl="masterMenu.Master" publishTime="10/14/2015 20:43:57" />
+    <file relUrl="Styles/calendar-blue.css" publishTime="10/14/2015 20:43:57" />
+    <file relUrl="masterMenu.Master" publishTime="10/18/2015 17:46:45" />
     <file relUrl="main.js" publishTime="10/14/2015 20:43:57" />
+    <file relUrl="bin/RegistroIncidentes.dll" publishTime="10/18/2015 18:40:02" />
     <file relUrl="App_Browsers/chrome.browser" publishTime="10/14/2015 20:43:57" />
-    <file relUrl="RegistroEdicionIncidente.aspx" publishTime="10/14/2015 20:43:57" />
     <file relUrl="estiloMain.css" publishTime="10/14/2015 20:43:57" />
-    <file relUrl="Imagenes/cerrarSession.gif" publishTime="10/14/2015 20:43:57" />
-    <file relUrl="ReporteSucesos.aspx" publishTime="10/14/2015 20:43:57" />
+    <file relUrl="CambioContrasenia.aspx" publishTime="10/14/2015 20:43:57" />
+    <file relUrl="ReporteSucesos.aspx" publishTime="10/18/2015 18:24:55" />
     <file relUrl="Imagenes/calender.png" publishTime="09/10/2015 10:53:57" />
     <file relUrl="Scripts/calendar-en.min.js" publishTime="10/14/2015 20:43:57" />
     <file relUrl="Scripts/jquery.dynDateTime.min.js" publishTime="10/14/2015 20:43:57" />
-    <file relUrl="ReporteAsignacionSuceso.aspx" publishTime="10/14/2015 20:43:57" />
+    <file relUrl="RegistroEdicionIncidente.aspx" publishTime="10/14/2015 20:43:57" />
     <file relUrl="Default.aspx" publishTime="10/14/2015 23:55:11" />
-    <file relUrl="CambioContrasenia.aspx" publishTime="10/14/2015 20:43:57" />
-    <file relUrl="EdicionIngresoIncidente.aspx" publishTime="10/15/2015 05:57:15" />
-    <file relUrl="bin/LibreriaControlador.com.ec.dll" publishTime="10/15/2015 06:01:08" />
+    <file relUrl="EdicionIngresoIncidente.aspx" publishTime="10/18/2015 14:00:45" />
+    <file relUrl="ReporteAsignacionSuceso.aspx" publishTime="10/14/2015 20:43:57" />
   </publishTarget>
   <publishTarget publishUrl="C:\www\">
     <file relUrl="WebMenu.sitemap" publishTime="08/31/2015 21:59:10" />

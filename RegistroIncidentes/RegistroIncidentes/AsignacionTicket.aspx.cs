@@ -54,8 +54,9 @@ namespace RegistroIncidentes
             suceso.registroIncidente = fechaRegistro;
             suceso.fechaCierre = fechaRegistro;
             suceso.primerInteraccion = fechaRegistro;
-            suceso.descripcionincidente = txbxDescripcion.Text;
+            suceso.etiqueta = txbxDescripcion.Text;
             suceso.pais = "";
+            suceso.descripcionincidente = "";
             suceso.codigoGrupoAsignado = 1;
             lblMensaje.Text = GlobalSistema.sistema.insertarActualizarSucesoUsuario(suceso);
         }

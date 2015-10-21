@@ -21,8 +21,8 @@ namespace RegistroIncidentes
             if (!IsPostBack)
             {
                 usuarioSesion = (UsuarioBean)Session[GlobalSistema.usuarioSesionSistema];
-                this.txbxFechaInicio.Text = System.DateTime.Now.ToString("MM/dd/yyyy ") + "00:00";
-                this.txbxFechaFin.Text = System.DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+                this.txbxFechaInicio.Text = System.DateTime.Now.ToString("MM/dd/yyyy ") + "00:00 AM";
+                this.txbxFechaFin.Text = System.DateTime.Now.ToString(GlobalSistema.formatoFecha, CultureInfo.InvariantCulture);
             }
             ClientScript.RegisterStartupScript(GetType(), "", "mostrarDateTimePickerTxbxFin();mostrarDateTimePickerTxbxInicio();", true);
         }
@@ -104,9 +104,23 @@ namespace RegistroIncidentes
             try
             {
                 //inicio = Convert.ToDateTime(this.txbxFechaInicio.Text);
-                inicio = DateTime.ParseExact(this.txbxFechaInicio.Text, "MM/dd/yyyy HH:mm", CultureInfo.CreateSpecificCulture("en-US"));
+                if (this.txbxFechaInicio.Text.EndsWith("AM") || this.txbxFechaInicio.Text.EndsWith("PM"))
+                {
+                    inicio = DateTime.ParseExact(this.txbxFechaInicio.Text, GlobalSistema.formatoFecha, CultureInfo.CreateSpecificCulture("en-US"));
+                }
+                else
+                {
+                    inicio = DateTime.ParseExact(this.txbxFechaInicio.Text, "MM/dd/yyyy HH:mm", CultureInfo.CreateSpecificCulture("en-US"));
+                }
                 //fin = Convert.ToDateTime(this.txbxFechaFin.Text);
-                fin = DateTime.ParseExact(this.txbxFechaFin.Text, "MM/dd/yyyy HH:mm", CultureInfo.CreateSpecificCulture("en-US"));
+                if (this.txbxFechaFin.Text.EndsWith("AM") || this.txbxFechaFin.Text.EndsWith("PM"))
+                {
+                    fin = DateTime.ParseExact(this.txbxFechaFin.Text, GlobalSistema.formatoFecha, CultureInfo.CreateSpecificCulture("en-US"));
+                    
+                }
+                else {
+                    fin = DateTime.ParseExact(this.txbxFechaFin.Text, "MM/dd/yyyy HH:mm", CultureInfo.CreateSpecificCulture("en-US"));
+                }
             }
             catch (FormatException ex)
             {

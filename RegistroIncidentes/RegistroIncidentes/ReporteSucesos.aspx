@@ -80,6 +80,10 @@ RepeatDirection = "Horizontal" AutoPostBack = "true"
                     <asp:BoundField DataField="codigoTierTres" HeaderText="TIER III" />
                     <asp:BoundField DataField="enviadoSistmas" HeaderText="Enviado Sistemas" />
                     <asp:BoundField DataField="estadistica" HeaderText="Estadistica" />
+                    <asp:BoundField DataField="sla_respuesta" HeaderText="sla respuesta" />
+                    <asp:BoundField DataField="sls_solucion" HeaderText="sla solución" />
+                    <asp:BoundField DataField="etiqueta" HeaderText="etiqueta" />
+                    <asp:BoundField DataField="descripcionincidente" HeaderText="descripcion" />
                 </Columns>  
 
 <HeaderStyle BackColor="#E94F31" ForeColor="White"></HeaderStyle>

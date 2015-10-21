@@ -2,8 +2,8 @@
 
 <asp:Content ID = "contenido" runat = "server" ContentPlaceHolderID = "contenedorPrincipal">
     <br />
-<div align="left">
-<table width = "600px">
+<div align="center">
+<table style="width: 636px">
 <tr>
 <td> <label>Buscar por :</label></td>
 <td colspan = "1"><asp:RadioButtonList ID = "rbgSeleccion" runat = "server" 
@@ -18,21 +18,22 @@ OnClick = "nuevo_registro_incidente" TabIndex="5"/></td>
 </tr>
     <tr>
         <td colspan = "1"><asp:Label ID ="lblCodigo" runat = "server">Código Incidente </asp:Label></td>
-        <td colspan = "3"><asp:TextBox ID = "txbxCodigoIncidente" runat = "server" 
-                AutoCompleteType="Disabled" TabIndex="1"></asp:TextBox></td>
+        <td colspan = "3">
+            <asp:TextBox ID = "txbxCodigoIncidente" runat = "server" 
+                AutoCompleteType="Disabled" TabIndex="1" Width="156px"></asp:TextBox></td>
         
     </tr>
     <tr>
     <td><asp:Label ID ="lbFechaInicio" runat = "server" Visible="False">Fecha Incio : </asp:Label></td>
     <td>
         <asp:TextBox ID="txbxFechaInicio" runat="server" ReadOnly = "false" 
-            Visible="False" AutoCompleteType="Disabled" TabIndex="2"></asp:TextBox>
+            Visible="False" AutoCompleteType="Disabled" TabIndex="2" Width="156px"></asp:TextBox>
         <asp:ImageButton ImageUrl = "~/Imagenes/calender.png" runat="server" 
         ID = "imgIni" Visible="False" OnClientClick="return false;" />
         </td>
     <td><asp:Label ID ="lblFechaFin" runat = "server" Visible="False">Fecha Fin </asp:Label></td>
     <td><asp:TextBox ID="txbxFechaFin" runat="server" ReadOnly = "false" 
-            Visible="False" AutoCompleteType="Disabled" TabIndex="3"></asp:TextBox>
+            Visible="False" AutoCompleteType="Disabled" TabIndex="3" Width="155px"></asp:TextBox>
         <asp:ImageButton ImageUrl = "~/Imagenes/calender.png" runat="server" 
         ID = "imgFin" Visible="False" OnClientClick="return false;"/></td>
     </tr>
@@ -44,29 +45,32 @@ OnClick = "nuevo_registro_incidente" TabIndex="5"/></td>
 </table>
 </div>
 <br />
-<div align="left">  
+<div align="center" style="width: auto; height: auto" >  
             <asp:GridView ID="GridViewIncidente" HeaderStyle-BackColor="#e94f31" HeaderStyle-ForeColor="White"  
                 runat="server" AutoGenerateColumns="False" AllowPaging = "True" 
-                PageSize="7" CellSpacing = "1"  OnRowCommand="edicion_fila_suceso" 
+                CellSpacing = "1"  OnRowCommand="edicion_fila_suceso" 
                 onpageindexchanged="GridViewIncidente_PageIndexChanged_" 
-                onpageindexchanging="GridViewIncidente_PageIndexChanging" Font-Size="Smaller" >  
+                onpageindexchanging="GridViewIncidente_PageIndexChanging" 
+                Font-Size="Smaller" Width="100%">  
                 <Columns>  
                     <asp:BoundField DataField="codigoIncidente" HeaderText="# Incidente" 
                         ItemStyle-Width="100" >  
-<ItemStyle Width="100px"></ItemStyle>
+<ItemStyle Width="12%"></ItemStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="codigo_usuario" HeaderText="Usuario" ItemStyle-Width="150" >  
-<ItemStyle Width="150px"></ItemStyle>
+<ItemStyle Width="20%"></ItemStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="reporteIncidente" HeaderText="Fecha Incidente" 
                         ItemStyle-Width="150" DataFormatString="{0:MM-dd-yyyy HH:mm}" >
-<ItemStyle Width="150px"></ItemStyle>
+<ItemStyle Width="12%"></ItemStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="descripcionincidente" HeaderText="Descripción" 
                         ItemStyle-Width="150" >    
-<ItemStyle Width="150px"></ItemStyle>
+<ItemStyle Width="45%"></ItemStyle>
                     </asp:BoundField>
-                    <asp:ButtonField ButtonType="Button" CommandName="Edicion" Text="Edición"/> 
+                    <asp:ButtonField ButtonType="Button" CommandName="Edicion" Text="Edición"> 
+                        <ItemStyle Width="5%" />
+                    </asp:ButtonField>
                 </Columns>  
 
                 <HeaderStyle BackColor="#E94F31" ForeColor="White"></HeaderStyle>

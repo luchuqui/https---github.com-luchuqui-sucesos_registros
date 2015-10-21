@@ -32,5 +32,8 @@ namespace LibreriaControlador.com.ec.BeanObjetos
         public string pais { get; set; }
         public bool estadistica { get; set; }
         public string usuarioAsigna { get; set; }
+        public string etiqueta { get; set; }
+        public string sla_respuesta { get; set; }
+        public string sls_solucion { get; set; }
     }
 }

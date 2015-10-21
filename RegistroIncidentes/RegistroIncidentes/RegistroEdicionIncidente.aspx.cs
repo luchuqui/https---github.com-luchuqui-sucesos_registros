@@ -120,11 +120,12 @@ namespace RegistroIncidentes
 
         public void cargar_datos_sesion() {
             suceso = (sucesoBean)Session[GlobalSistema.incidenteSesion];
+            
             if (suceso != null) {
                 
                 if (suceso.fechaCierre != null)
                 {
-                    this.txbxFechaFin.Text = suceso.fechaCierre.ToString("MM/dd/yyyy hh:mm");
+                    this.txbxFechaFin.Text = suceso.fechaCierre.ToString(GlobalSistema.formatoFecha, CultureInfo.InvariantCulture);
                     if (txbxFechaFin.Text.Contains("1900"))
                     {
                         this.txbxFechaFin.Text = "";
@@ -132,7 +133,7 @@ namespace RegistroIncidentes
                 }
                 if (suceso.registroIncidente != null)
                 {
-                    this.txbxFechaIncidente.Text = suceso.registroIncidente.ToString("MM/dd/yyyy hh:mm");
+                    this.txbxFechaIncidente.Text = suceso.registroIncidente.ToString(GlobalSistema.formatoFecha, CultureInfo.InvariantCulture);
                     if (txbxFechaIncidente.Text.Contains("1900"))
                     {
                         this.txbxFechaIncidente.Text = "";
@@ -140,7 +141,7 @@ namespace RegistroIncidentes
                 }
                 if (suceso.primerInteraccion != null)
                 {
-                    this.txbxFechaInicio.Text = suceso.primerInteraccion.ToString("MM/dd/yyyy hh:mm");
+                    this.txbxFechaInicio.Text = suceso.primerInteraccion.ToString(GlobalSistema.formatoFecha, CultureInfo.InvariantCulture);
                     if (this.txbxFechaInicio.Text.Contains("1900"))
                     {
                         this.txbxFechaInicio.Text = "";
@@ -213,24 +214,33 @@ namespace RegistroIncidentes
             if (suceso == null) {
                 suceso = new sucesoBean();
             }
+            
             //Buscar  si código de suceso fue ingresado anteriormente
             UsuarioBean usrTmp = new UsuarioBean();
             usrTmp.setCodigoUsuario(0);
             List<SucesoReporteBean> lsSuceso = GlobalSistema.sistema.obtenerIncidentesReportePorUsuario(txbxNumIncidente.Text,usrTmp);
-            if (lsSuceso.Count > 0 && sesionUsuario.getNivelAcceso() != 0)
-            {
-                suceso.codigo_usuario = GlobalSistema.sistema.obtenerDatosUsuario(lblUsuarioRegistra.Text, true).getCodigoUsuario();
-                if (!sesionUsuario.getNumeroDocumento().Equals(lsSuceso[0].documento))
-                {
-                    lblMensajeError.Text = "Suceso registrado, con usuario " + lsSuceso[0].codigo_usuario + " solo este usuario puede editar";
-                    return;
-                }
-            }
-            else {
-                suceso.codigo_usuario = sesionUsuario.getCodigoUsuario();
-            }
+            //if (lsSuceso.Count > 0 && sesionUsuario.getNivelAcceso() != 0)
+            //{
+            suceso.codigo_usuario = GlobalSistema.sistema.obtenerDatosUsuario(lblUsuarioRegistra.Text, true).getCodigoUsuario();
+            //    if (!sesionUsuario.getNumeroDocumento().Equals(lsSuceso[0].documento))
+            //    {
+            //        lblMensajeError.Text = "Suceso registrado, con usuario " + lsSuceso[0].codigo_usuario + " solo este usuario puede editar";
+            //        return;
+            //    }
+            //}
+            //else {
+            suceso.codigo_usuario = sesionUsuario.getCodigoUsuario();
+            //}
             //DateTime fechaRegistro = Convert.ToDateTime(this.txbxFechaIncidente.Text);
-            DateTime fechaRegistro = DateTime.ParseExact(this.txbxFechaIncidente.Text, "MM/dd/yyyy HH:mm", CultureInfo.CreateSpecificCulture("en-US"));
+            DateTime fechaRegistro = System.DateTime.Now;
+            if (txbxFechaIncidente.Text.EndsWith("AM") || txbxFechaIncidente.Text.EndsWith("PM"))
+            {
+                fechaRegistro = DateTime.ParseExact(this.txbxFechaIncidente.Text, GlobalSistema.formatoFecha, CultureInfo.CreateSpecificCulture("en-US"));
+            }
+            else
+            {
+                fechaRegistro = DateTime.ParseExact(this.txbxFechaIncidente.Text, "MM/dd/yyyy HH:mm", CultureInfo.CreateSpecificCulture("en-US"));
+            }
             suceso.registroIncidente = fechaRegistro;
             //DateTime fechaPrimeraInteraccion = Convert.ToDateTime("1900-01-01");
             DateTime fechaPrimeraInteraccion = DateTime.ParseExact("01/01/1900", "MM/dd/yyyy", CultureInfo.CreateSpecificCulture("en-US"));
@@ -240,7 +250,13 @@ namespace RegistroIncidentes
             if (!string.IsNullOrEmpty(this.txbxFechaInicio.Text))
             {
                 //fechaPrimeraInteraccion = Convert.ToDateTime(this.txbxFechaInicio.Text);
-                fechaPrimeraInteraccion = DateTime.ParseExact(this.txbxFechaInicio.Text, "MM/dd/yyyy HH:mm", CultureInfo.CreateSpecificCulture("en-US"));
+                if (txbxFechaInicio.Text.EndsWith("AM") || txbxFechaInicio.Text.EndsWith("PM"))
+                {
+                    fechaPrimeraInteraccion = DateTime.ParseExact(this.txbxFechaInicio.Text, GlobalSistema.formatoFecha, CultureInfo.CreateSpecificCulture("en-US"));
+                }
+                else {
+                    fechaPrimeraInteraccion = DateTime.ParseExact(this.txbxFechaInicio.Text, "MM/dd/yyyy HH:mm", CultureInfo.CreateSpecificCulture("en-US"));
+                }
                 if (DateTime.Compare(fechaPrimeraInteraccion, fechaRegistro) < 0)
                 {
                     this.lblMensajeError.Text = "Fecha de Primera Interacción debe ser mayor que la fecha registro";
@@ -254,7 +270,14 @@ namespace RegistroIncidentes
             if (!string.IsNullOrEmpty(this.txbxFechaFin.Text))
             {
                 //fechaFin = Convert.ToDateTime(this.txbxFechaFin.Text);
-                fechaFin = DateTime.ParseExact(this.txbxFechaFin.Text, "MM/dd/yyyy HH:mm", CultureInfo.CreateSpecificCulture("en-US"));
+                if (txbxFechaFin.Text.EndsWith("AM") || txbxFechaFin.Text.EndsWith("PM"))
+                {
+                    fechaFin = DateTime.ParseExact(this.txbxFechaFin.Text, GlobalSistema.formatoFecha, CultureInfo.CreateSpecificCulture("en-US"));
+                }
+                else {
+                    fechaFin = DateTime.ParseExact(this.txbxFechaFin.Text, "MM/dd/yyyy HH:mm", CultureInfo.CreateSpecificCulture("en-US"));
+                }
+                
                 if (DateTime.Compare(fechaPrimeraInteraccion, Convert.ToDateTime("1900-01-01")) == 0)
                 {
                     this.lblMensajeError.Text = "Seleccione una fecha de primera iteracción para cerrar";

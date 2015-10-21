@@ -21,6 +21,7 @@ namespace RegistroIncidentes
         public static Seguridad seguridad = new Seguridad();
         public static string usuarioSesionSistema = "usuarioSesion";
         public static string incidenteSesion = "incidenteSesion";
-        
+        public static string formatoFecha = sistema.obtenerListParametro("A", 1)[0].valor;
+
     }
 }
