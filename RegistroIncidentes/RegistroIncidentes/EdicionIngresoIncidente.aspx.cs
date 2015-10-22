@@ -28,7 +28,7 @@ namespace RegistroIncidentes
             if (!IsPostBack)
             {
                 cargar_datos_sucesos_usuario();
-                this.txbxFechaInicio.Text = System.DateTime.Now.ToString(GlobalSistema.formatoFecha.Substring(0,9)) + " 00:00 AM";
+                this.txbxFechaInicio.Text = System.DateTime.Now.ToString(GlobalSistema.formatoFecha.Substring(0,9)) + " 00:00:00 AM";
                 this.txbxFechaFin.Text = System.DateTime.Now.ToString(GlobalSistema.formatoFecha, CultureInfo.InvariantCulture);
             }
             ClientScript.RegisterStartupScript(GetType(), "", "mostrarDateTimePickerTxbxFin();mostrarDateTimePickerTxbxInicio();", true);

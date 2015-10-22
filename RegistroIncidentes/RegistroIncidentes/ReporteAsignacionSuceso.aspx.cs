@@ -27,7 +27,7 @@ namespace RegistroIncidentes
             if (!IsPostBack)
             {
                 usuarioSesion = (UsuarioBean)Session[GlobalSistema.usuarioSesionSistema];
-                this.txbxFechaInicio.Text = System.DateTime.Now.ToString("MM/dd/yyyy ") + "00:00 AM";
+                this.txbxFechaInicio.Text = System.DateTime.Now.ToString("MM/dd/yyyy ") + "00:00:00 AM";
                 this.txbxFechaFin.Text = System.DateTime.Now.ToString(GlobalSistema.formatoFecha, CultureInfo.InvariantCulture);
             }
             ClientScript.RegisterStartupScript(GetType(), "", "mostrarDateTimePickerTxbxFin();mostrarDateTimePickerTxbxInicio();", true);

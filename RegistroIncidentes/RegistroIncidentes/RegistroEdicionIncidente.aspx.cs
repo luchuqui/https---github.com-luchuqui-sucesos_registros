@@ -233,68 +233,76 @@ namespace RegistroIncidentes
             //}
             //DateTime fechaRegistro = Convert.ToDateTime(this.txbxFechaIncidente.Text);
             DateTime fechaRegistro = System.DateTime.Now;
-            if (txbxFechaIncidente.Text.EndsWith("AM") || txbxFechaIncidente.Text.EndsWith("PM"))
+            try
             {
-                fechaRegistro = DateTime.ParseExact(this.txbxFechaIncidente.Text, GlobalSistema.formatoFecha, CultureInfo.CreateSpecificCulture("en-US"));
-            }
-            else
-            {
-                fechaRegistro = DateTime.ParseExact(this.txbxFechaIncidente.Text, "MM/dd/yyyy HH:mm", CultureInfo.CreateSpecificCulture("en-US"));
-            }
-            suceso.registroIncidente = fechaRegistro;
-            //DateTime fechaPrimeraInteraccion = Convert.ToDateTime("1900-01-01");
-            DateTime fechaPrimeraInteraccion = DateTime.ParseExact("01/01/1900", "MM/dd/yyyy", CultureInfo.CreateSpecificCulture("en-US"));
-            //DateTime fechaFin = Convert.ToDateTime("1900-01-01");
-            DateTime fechaFin = DateTime.ParseExact("01/01/1900", "MM/dd/yyyy", CultureInfo.CreateSpecificCulture("en-US"));
+                if (txbxFechaIncidente.Text.EndsWith("AM") || txbxFechaIncidente.Text.EndsWith("PM"))
+                {
+                    fechaRegistro = DateTime.ParseExact(this.txbxFechaIncidente.Text, GlobalSistema.formatoFecha, CultureInfo.CreateSpecificCulture("en-US"));
+                }
+                else
+                {
+                    fechaRegistro = DateTime.ParseExact(this.txbxFechaIncidente.Text, "MM/dd/yyyy HH:mm", CultureInfo.CreateSpecificCulture("en-US"));
+                }
+                suceso.registroIncidente = fechaRegistro;
+                //DateTime fechaPrimeraInteraccion = Convert.ToDateTime("1900-01-01");
+                DateTime fechaPrimeraInteraccion = DateTime.ParseExact("01/01/1900", "MM/dd/yyyy", CultureInfo.CreateSpecificCulture("en-US"));
+                //DateTime fechaFin = Convert.ToDateTime("1900-01-01");
+                DateTime fechaFin = DateTime.ParseExact("01/01/1900", "MM/dd/yyyy", CultureInfo.CreateSpecificCulture("en-US"));
 
-            if (!string.IsNullOrEmpty(this.txbxFechaInicio.Text))
-            {
-                //fechaPrimeraInteraccion = Convert.ToDateTime(this.txbxFechaInicio.Text);
-                if (txbxFechaInicio.Text.EndsWith("AM") || txbxFechaInicio.Text.EndsWith("PM"))
+                if (!string.IsNullOrEmpty(this.txbxFechaInicio.Text))
                 {
-                    fechaPrimeraInteraccion = DateTime.ParseExact(this.txbxFechaInicio.Text, GlobalSistema.formatoFecha, CultureInfo.CreateSpecificCulture("en-US"));
+                    //fechaPrimeraInteraccion = Convert.ToDateTime(this.txbxFechaInicio.Text);
+                    if (txbxFechaInicio.Text.EndsWith("AM") || txbxFechaInicio.Text.EndsWith("PM"))
+                    {
+                        fechaPrimeraInteraccion = DateTime.ParseExact(this.txbxFechaInicio.Text, GlobalSistema.formatoFecha, CultureInfo.CreateSpecificCulture("en-US"));
+                    }
+                    else
+                    {
+                        fechaPrimeraInteraccion = DateTime.ParseExact(this.txbxFechaInicio.Text, "MM/dd/yyyy HH:mm", CultureInfo.CreateSpecificCulture("en-US"));
+                    }
+                    if (DateTime.Compare(fechaPrimeraInteraccion, fechaRegistro) < 0)
+                    {
+                        this.lblMensajeError.Text = "Fecha de Primera Interacción debe ser mayor que la fecha registro";
+                        return;
+                    }
+                    suceso.primerInteraccion = fechaPrimeraInteraccion;
                 }
-                else {
-                    fechaPrimeraInteraccion = DateTime.ParseExact(this.txbxFechaInicio.Text, "MM/dd/yyyy HH:mm", CultureInfo.CreateSpecificCulture("en-US"));
-                }
-                if (DateTime.Compare(fechaPrimeraInteraccion, fechaRegistro) < 0)
+                else
                 {
-                    this.lblMensajeError.Text = "Fecha de Primera Interacción debe ser mayor que la fecha registro";
-                    return;
+                    suceso.primerInteraccion = fechaPrimeraInteraccion;
                 }
-                suceso.primerInteraccion = fechaPrimeraInteraccion;
-            }
-            else {
-                suceso.primerInteraccion = fechaPrimeraInteraccion;
-            }
-            if (!string.IsNullOrEmpty(this.txbxFechaFin.Text))
-            {
-                //fechaFin = Convert.ToDateTime(this.txbxFechaFin.Text);
-                if (txbxFechaFin.Text.EndsWith("AM") || txbxFechaFin.Text.EndsWith("PM"))
+                if (!string.IsNullOrEmpty(this.txbxFechaFin.Text))
                 {
-                    fechaFin = DateTime.ParseExact(this.txbxFechaFin.Text, GlobalSistema.formatoFecha, CultureInfo.CreateSpecificCulture("en-US"));
+                    //fechaFin = Convert.ToDateTime(this.txbxFechaFin.Text);
+                    if (txbxFechaFin.Text.EndsWith("AM") || txbxFechaFin.Text.EndsWith("PM"))
+                    {
+                        fechaFin = DateTime.ParseExact(this.txbxFechaFin.Text, GlobalSistema.formatoFecha, CultureInfo.CreateSpecificCulture("en-US"));
+                    }
+                    else
+                    {
+                        fechaFin = DateTime.ParseExact(this.txbxFechaFin.Text, "MM/dd/yyyy HH:mm", CultureInfo.CreateSpecificCulture("en-US"));
+                    }
+
+                    if (DateTime.Compare(fechaPrimeraInteraccion, Convert.ToDateTime("1900-01-01")) == 0)
+                    {
+                        this.lblMensajeError.Text = "Seleccione una fecha de primera iteracción para cerrar";
+                        return;
+                    }
+                    if (DateTime.Compare(fechaPrimeraInteraccion, fechaFin) > 0)
+                    {
+                        this.lblMensajeError.Text = "Fecha de cierre debe ser mayor que la Primera Interacción";
+                        return;
+                    }
+                    suceso.fechaCierre = fechaFin;
                 }
-                else {
-                    fechaFin = DateTime.ParseExact(this.txbxFechaFin.Text, "MM/dd/yyyy HH:mm", CultureInfo.CreateSpecificCulture("en-US"));
-                }
-                
-                if (DateTime.Compare(fechaPrimeraInteraccion, Convert.ToDateTime("1900-01-01")) == 0)
+                else
                 {
-                    this.lblMensajeError.Text = "Seleccione una fecha de primera iteracción para cerrar";
-                    return;
+                    suceso.fechaCierre = fechaFin;
                 }
-                if (DateTime.Compare(fechaPrimeraInteraccion, fechaFin) > 0)
-                {
-                    this.lblMensajeError.Text = "Fecha de cierre debe ser mayor que la Primera Interacción";
-                    return;
-                }
-                suceso.fechaCierre = fechaFin;
-            }
-            else {
-                suceso.fechaCierre = fechaFin;
-            }
+            
             suceso.codigoIncidente = this.txbxNumIncidente.Text;
             suceso.descripcionincidente = this.txbxObservacion.Text;
+            suceso.etiqueta = this.txbxEtiqueta.Text;
             suceso.pais = this.txbxPais.Text;
             suceso.codigoDato = Convert.ToInt16(this.lsBxDatoSeleccionado.SelectedValue);
             suceso.estadoIncidente = Convert.ToInt16(this.lsBxEstadoIncidente.SelectedValue);
@@ -309,6 +317,10 @@ namespace RegistroIncidentes
             suceso.recibidoSistemas = chbxRebido.Checked;
             suceso.estadistica = chbxEstadistica.Checked;
             lblMensajeError.Text = GlobalSistema.sistema.insertarActualizarSucesoUsuario(suceso);
+                } catch(FormatException ex) {
+                    lblMensajeError.Text = ex.Message;
+                    lblMensajeError.Text = "Debe ingresar formato de fecha Remedy";
+            }
         }
 
         public void limpiar(object sender, EventArgs e) {
