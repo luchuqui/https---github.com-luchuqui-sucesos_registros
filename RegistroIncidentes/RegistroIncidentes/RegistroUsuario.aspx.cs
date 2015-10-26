@@ -32,7 +32,7 @@ namespace RegistroIncidentes
             registroUsr.setNombres(this.txbxNombre.Text);
             registroUsr.setApellido(this.txbxApellido.Text);
             registroUsr.setCorreo(this.txbxEmail.Text);
-            registroUsr.setEstadoUsuario("A");
+            registroUsr.setEstadoUsuario("I");
             registroUsr.setFechaCreacion(System.DateTime.Now);
             registroUsr.setNivelAcceso(1);
             registroUsr.setNumeroDocumento(this.txbxNumeroDocumento.Text);

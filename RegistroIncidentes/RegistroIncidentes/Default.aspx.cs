@@ -40,9 +40,18 @@ namespace RegistroIncidentes
                 GlobalSistema.sistema.insertar_usuario_sistema(usuarioLogin, false);
                 Response.Redirect("EdicionIngresoIncidente.aspx");
             }
-            else {
-                this.mensajeError.Text = "Usuario inabilitado";
+            else if (usuarioLogin.getEstadoUsuario().Equals("E"))
+            {
+                this.mensajeError.Text = "Usuario no permitido el acceso, contactese con soporte";
             }
+            else if (usuarioLogin.getEstadoUsuario().Equals("I"))
+            {
+                this.mensajeError.Text = "Usuario inabilitado, debe ser dado de alta por el administrador";
+            }
+            else {
+                this.mensajeError.Text = "Estado desconocido";
+            }
+
         }
     }
 }

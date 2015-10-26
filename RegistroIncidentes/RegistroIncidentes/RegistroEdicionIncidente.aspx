@@ -1,6 +1,7 @@
 <%@ Page Language="C#" AutoEventWireup="true" MasterPageFile = "~/masterMenu.Master" CodeBehind="RegistroEdicionIncidente.aspx.cs" Inherits="RegistroIncidentes.RegistroEdicionIncidente" %>
 
 <asp:Content ID = "contenido" runat = "server" ContentPlaceHolderID = "contenedorPrincipal">
+<asp:Panel ID="panelEdicion" runat = "server" DefaultButton ="btnGuardar">
     <table align="center" width = "100%">
     <tr>
         <th colspan = "3"><label>REGISTRO - EDICIÓN DE INCIDENTES</label></th>
@@ -187,4 +188,5 @@
         </td>
     </tr>
 </table>
+</asp:Panel>
 </asp:Content>

@@ -76,7 +76,7 @@ namespace RegistroIncidentes
             Response.ContentType = "application/vnd.ms-excel";
             Response.AddHeader("Content-Disposition", "attachment;filename=reporte_" + nombre + ".xls");
             Response.Charset = "UTF-8";
-            Response.ContentEncoding = Encoding.ASCII;
+            Response.ContentEncoding = Encoding.Default;
             Response.Write(sb.ToString());
             Response.End();
         }

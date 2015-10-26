@@ -20,10 +20,18 @@ namespace RegistroIncidentes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) {
-                cargarUsuarioSistemas();
-                UsuarioBean usr = (UsuarioBean)Session[GlobalSistema.usuarioSesionSistema];
-                lblUsuarioReporta.Text = usr.getNumeroDocumento();
+            try
+            {
+                if (!IsPostBack)
+                {
+                    cargarUsuarioSistemas();
+                    UsuarioBean usr = (UsuarioBean)Session[GlobalSistema.usuarioSesionSistema];
+                    lblUsuarioReporta.Text = usr.getNumeroDocumento();
+                }
+            }
+            catch (NullReferenceException ec) { 
+            // su sesion expiro
+                Response.Redirect("Default.aspx");
             }
         }
 
@@ -51,7 +59,8 @@ namespace RegistroIncidentes
                 return;
             }
             DateTime fechaRegistro = DateTime.ParseExact("01/01/1900", "MM/dd/yyyy", CultureInfo.CreateSpecificCulture("en-US"));
-            suceso.registroIncidente = fechaRegistro;
+            suceso.registroIncidente = DateTime.Now;
+            suceso.reporteIncidente = fechaRegistro;
             suceso.fechaCierre = fechaRegistro;
             suceso.primerInteraccion = fechaRegistro;
             suceso.etiqueta = txbxDescripcion.Text;

@@ -131,9 +131,9 @@ namespace RegistroIncidentes
                         this.txbxFechaFin.Text = "";
                     }
                 }
-                if (suceso.registroIncidente != null)
+                if (suceso.reporteIncidente != null)
                 {
-                    this.txbxFechaIncidente.Text = suceso.registroIncidente.ToString(GlobalSistema.formatoFecha, CultureInfo.InvariantCulture);
+                    this.txbxFechaIncidente.Text = suceso.reporteIncidente.ToString(GlobalSistema.formatoFecha, CultureInfo.InvariantCulture);
                     if (txbxFechaIncidente.Text.Contains("1900"))
                     {
                         this.txbxFechaIncidente.Text = "";
@@ -243,7 +243,7 @@ namespace RegistroIncidentes
                 {
                     fechaRegistro = DateTime.ParseExact(this.txbxFechaIncidente.Text, "MM/dd/yyyy HH:mm", CultureInfo.CreateSpecificCulture("en-US"));
                 }
-                suceso.registroIncidente = fechaRegistro;
+                suceso.reporteIncidente = fechaRegistro;
                 //DateTime fechaPrimeraInteraccion = Convert.ToDateTime("1900-01-01");
                 DateTime fechaPrimeraInteraccion = DateTime.ParseExact("01/01/1900", "MM/dd/yyyy", CultureInfo.CreateSpecificCulture("en-US"));
                 //DateTime fechaFin = Convert.ToDateTime("1900-01-01");

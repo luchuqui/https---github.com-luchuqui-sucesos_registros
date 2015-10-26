@@ -616,7 +616,7 @@ namespace LibreriaControlador.com.ec.BaseDatos
         #region Miembros de interfaceBDD
 
 
-        public int insertarActulizarSuceso(sucesoBean suceso, bool insertar)
+        public string insertarActulizarSuceso(sucesoBean suceso, bool insertar)
         {
             SqlCommand cmd = null;
             string mensaje = "";
@@ -629,7 +629,7 @@ namespace LibreriaControlador.com.ec.BaseDatos
                 cmd.Parameters.AddWithValue("@codigo_incidente", suceso.codigoIncidente.Trim());
                 cmd.Parameters.AddWithValue("@recibido_sistemas", suceso.recibidoSistemas);
                 cmd.Parameters.AddWithValue("@codigo_tipo_sistemas", suceso.codigoTipoSistemas);
-                cmd.Parameters.AddWithValue("@fecha_reporte_incidente", suceso.registroIncidente);
+                cmd.Parameters.AddWithValue("@fecha_reporte_incidente", suceso.reporteIncidente);
                 cmd.Parameters.AddWithValue("@fecha_primera_interaccion", suceso.primerInteraccion);
                 cmd.Parameters.AddWithValue("@codigo_grupo_asignado", suceso.codigoGrupoAsignado);
                 cmd.Parameters.AddWithValue("@codigo_dato_seleccion", suceso.codigoDato);
@@ -655,7 +655,7 @@ namespace LibreriaControlador.com.ec.BaseDatos
                 cmd.Parameters.AddWithValue("@codigo_incidente", suceso.codigoIncidente.Trim());
                 cmd.Parameters.AddWithValue("@recibido_sistemas", suceso.recibidoSistemas);
                 cmd.Parameters.AddWithValue("@codigo_tipo_sistemas", suceso.codigoTipoSistemas);
-                cmd.Parameters.AddWithValue("@fecha_reporte_incidente", suceso.registroIncidente);
+                cmd.Parameters.AddWithValue("@fecha_reporte_incidente", suceso.reporteIncidente);
                 cmd.Parameters.AddWithValue("@fecha_primera_interaccion", suceso.primerInteraccion);
                 cmd.Parameters.AddWithValue("@codigo_grupo_asignado", suceso.codigoGrupoAsignado);
                 cmd.Parameters.AddWithValue("@codigo_dato_seleccion", suceso.codigoDato);
@@ -675,7 +675,12 @@ namespace LibreriaControlador.com.ec.BaseDatos
 
             try
             {
-                int i = cmd.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable tb = new DataTable("insertarActualizar");
+                da.Fill(tb);
+                mensaje = tb.Rows[0][0].ToString();
+                return mensaje;    
+                /*int i = cmd.ExecuteNonQuery();
                 if (i == 0)
                 {
 
@@ -684,7 +689,7 @@ namespace LibreriaControlador.com.ec.BaseDatos
                 else
                 {
                     return i;
-                }
+                }*/
 
             }
             catch (ArgumentException ex)

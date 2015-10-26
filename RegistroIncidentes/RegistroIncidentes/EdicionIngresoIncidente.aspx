@@ -3,6 +3,7 @@
 <asp:Content ID = "contenido" runat = "server" ContentPlaceHolderID = "contenedorPrincipal">
     <br />
 <div align="center">
+<asp:Panel ID = "panelBusqueda" runat= "server" DefaultButton = "btnBuscar">
 <table style="width: 636px">
 <tr>
 <td> <label>Buscar por :</label></td>
@@ -43,6 +44,7 @@ OnClick = "nuevo_registro_incidente" TabIndex="5"/></td>
     </tr>
     
 </table>
+</asp:Panel>
 </div>
 <br />
 <div align="center" style="width: auto; height: auto" >  
@@ -55,18 +57,27 @@ OnClick = "nuevo_registro_incidente" TabIndex="5"/></td>
                 <Columns>  
                     <asp:BoundField DataField="codigoIncidente" HeaderText="# Incidente" 
                         ItemStyle-Width="100" >  
-<ItemStyle Width="12%"></ItemStyle>
+<ItemStyle Width="11%"></ItemStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="codigo_usuario" HeaderText="Usuario" ItemStyle-Width="150" >  
-<ItemStyle Width="20%"></ItemStyle>
+<ItemStyle Width="15%"></ItemStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="reporteIncidente" HeaderText="Fecha Incidente" 
                         ItemStyle-Width="150" DataFormatString="{0:MM-dd-yyyy HH:mm}" >
 <ItemStyle Width="12%"></ItemStyle>
                     </asp:BoundField>
-                    <asp:BoundField DataField="descripcionincidente" HeaderText="Descripción" 
+                    <asp:BoundField DataField="primerInteraccion" 
+                        ItemStyle-Width="150" DataFormatString="{0:MM-dd-yyyy HH:mm}" 
+                        HeaderText="Primera Interacción" >
+<ItemStyle Width="12%"></ItemStyle>
+                    </asp:BoundField>
+                    <asp:BoundField DataField="fechaCierre" DataFormatString="{0:MM-dd-yyyy HH:mm}" 
+                        ItemStyle-Width="150" HeaderText="Fecha Cierre" >
+<ItemStyle Width="12%"></ItemStyle>
+                    </asp:BoundField>
+                    <asp:BoundField DataField="etiqueta" HeaderText="Etiqueta" 
                         ItemStyle-Width="150" >    
-<ItemStyle Width="45%"></ItemStyle>
+<ItemStyle Width="40%"></ItemStyle>
                     </asp:BoundField>
                     <asp:ButtonField ButtonType="Button" CommandName="Edicion" Text="Edición"> 
                         <ItemStyle Width="5%" />

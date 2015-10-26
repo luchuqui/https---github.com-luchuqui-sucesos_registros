@@ -5,6 +5,7 @@
 <div align="center">
 <h2>Asignación de Ticks a Usuarios</h2>
 </div>
+<asp:Panel ID = "panelIngreso" runat = "server" DefaultButton ="btnGuardar">
 <table>
     <tr>
     <td>
@@ -59,4 +60,5 @@
     </tr>
     
 </table>
+</asp:Panel>
 </asp:Content>

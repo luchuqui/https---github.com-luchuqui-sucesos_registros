@@ -32,7 +32,7 @@ namespace RegistroIncidentes.LogicaNegocio
             try
             {
                 mibase.insertarActualizarUsuario(usuario, insertar);
-                mensaje = "Proceso realizado con exito";
+                mensaje = "Proceso realizado con exito,se enviará una notificación a su correo para dar de alta su usuario";
             }
             catch (ExInsertarRegistro ex)
             {
@@ -266,15 +266,15 @@ namespace RegistroIncidentes.LogicaNegocio
                 if (sucesos.Count > 0)
                 {
                     //actualizamos
-                    mibase.insertarActulizarSuceso(sucesoUsr, false);
+                    mensaje = mibase.insertarActulizarSuceso(sucesoUsr, false);
                 }
                 else
                 {
                     // insertamos
                     sucesoUsr.etiqueta = "";
-                    mibase.insertarActulizarSuceso(sucesoUsr, true);
+                    mensaje =mibase.insertarActulizarSuceso(sucesoUsr, true);
                 }
-                mensaje = "Proceso realizado con éxito";
+                //mensaje = "Proceso realizado con éxito";
             }
             catch (ExInsertarRegistro ex)
             {

@@ -2,6 +2,7 @@
 
 <asp:Content ID = "contenido" runat = "server" ContentPlaceHolderID = "contenedorPrincipal">
     <div>
+<asp:Panel ID ="panelEdicion" runat = "server" DefaultButton="btnBuscar">
 <table width = "600px">
 <tr>
 <td> <label>Buscar por :</label></td>
@@ -40,7 +41,7 @@ RepeatDirection = "Horizontal" AutoPostBack = "true"
             ForeColor="Red"></asp:Label></td>
     </tr>
 </table>
-
+</asp:Panel>    
 </div>
 <div>
 <asp:GridView ID="GridViewIncidente" HeaderStyle-BackColor="#e94f31" HeaderStyle-ForeColor="White"  

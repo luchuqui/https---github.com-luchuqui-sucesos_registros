@@ -26,7 +26,7 @@ namespace LibreriaControlador.com.ec.Interfaces
         List<TierUnoBean> obtenerTierUno(string estado);
         List<TierDosBean> obtenerTierDos(TierUnoBean tierUno, string estado);
         List<TiertresBean> obtenerTierTres(TierDosBean tierDos, string estado);
-        int insertarActulizarSuceso(sucesoBean suceso, bool insertar);
+        string insertarActulizarSuceso(sucesoBean suceso, bool insertar);
         List<TipSistemasBean> obtenerTipoSistemas(string estado);
         List<ParametroConfiguracion> obtenerParametroConfiguracion(int codigoParametro,string estado);
 

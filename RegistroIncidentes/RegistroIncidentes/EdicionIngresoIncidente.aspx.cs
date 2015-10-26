@@ -37,6 +37,7 @@ namespace RegistroIncidentes
 
         public void btn_busqueda_datosBy(object sender, EventArgs e) {
             string rbSeleccionado = this.rbgSeleccion.Text;
+            usuarioSesion.setNivelAcceso(0);
             if (rbSeleccionado.Equals("codigo"))
             {
                 // Busqueda por codigo
