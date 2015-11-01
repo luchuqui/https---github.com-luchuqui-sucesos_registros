@@ -1,3 +1,4 @@
+
 <%@ Page Language="C#" MasterPageFile = "~/masterMenu.Master" AutoEventWireup="true" CodeBehind="EdicionIngresoIncidente.aspx.cs" Inherits="RegistroIncidentes.EdicionIngresoIncidente" %>
 
 <asp:Content ID = "contenido" runat = "server" ContentPlaceHolderID = "contenedorPrincipal">

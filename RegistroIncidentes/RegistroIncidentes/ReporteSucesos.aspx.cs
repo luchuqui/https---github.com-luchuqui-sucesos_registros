@@ -33,13 +33,25 @@ namespace RegistroIncidentes
                 lblMensajeError.Text = "Debe de realizar una busqueda";
                 return;
             }
-            string inicio;
-            string fin;
+            string inicio = string.Empty;
+            string fin = string.Empty;
             string nombre = string.Empty;
             try
             {
-                inicio = Convert.ToDateTime(this.txbxFechaInicio.Text).ToString("MMddyyyy");
-                fin = Convert.ToDateTime(this.txbxFechaFin.Text).ToString("MMddyyyy");
+                if (this.txbxFechaInicio.Text.EndsWith("M"))
+                {
+                    inicio = DateTime.ParseExact(this.txbxFechaInicio.Text, GlobalSistema.formatoFecha, CultureInfo.CreateSpecificCulture("en-US")).ToString("MMddyyyy");
+                }
+                else {
+                    inicio = Convert.ToDateTime(this.txbxFechaInicio.Text).ToString("MMddyyyy");
+                }
+                if (this.txbxFechaFin.Text.EndsWith("M"))
+                {
+                    fin = DateTime.ParseExact(this.txbxFechaFin.Text, GlobalSistema.formatoFecha, CultureInfo.CreateSpecificCulture("en-US")).ToString("MMddyyyy");
+                }
+                else {
+                    fin = Convert.ToDateTime(this.txbxFechaFin.Text).ToString("MMddyyyy");
+                }
                 nombre = inicio + "_" + fin;
             }
             catch (FormatException ex) {
@@ -99,6 +111,7 @@ namespace RegistroIncidentes
             else if (rbSeleccionado.Equals("fechas"))
             {
             // Busqueda por rango de fechas
+                txbxCodigoIncidente.Text = "";
             DateTime inicio;
             DateTime fin;
             try
