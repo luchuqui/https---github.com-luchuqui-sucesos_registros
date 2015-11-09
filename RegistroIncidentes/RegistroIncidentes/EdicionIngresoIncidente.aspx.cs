@@ -131,6 +131,7 @@ namespace RegistroIncidentes
             if (!IsPostBack)
             {
                 lsSucesos = GlobalSistema.sistema.obtenerIncidentesAsignadosPorUsuario("%", usuarioSesion);
+                lblNoProcesados.Text = lsSucesos.Count.ToString();
             }
             GridViewIncidente.DataSource = lsSucesos;
             GridViewIncidente.DataBind();

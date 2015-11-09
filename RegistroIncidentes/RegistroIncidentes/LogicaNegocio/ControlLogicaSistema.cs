@@ -78,6 +78,14 @@ namespace RegistroIncidentes.LogicaNegocio
             return usuario;
         }
 
+        public string validarRegistroExistente(string codigoIncidente) {
+            string mensaje = string.Empty;
+            mibase.abrir_conexion_base();
+            mensaje = mibase.validarCodigoIndicedentee(codigoIncidente);
+            mibase.cerrar_conexion_base();
+            return mensaje;
+        }
+
         public UsuarioBean obtenerDatosUsuario(string numeroDocumento,bool tipoBusqueda) {
             mibase.abrir_conexion_base();
             List<UsuarioBean> lsUsuario = mibase.obtenerUsurioByDocumento(numeroDocumento,tipoBusqueda);

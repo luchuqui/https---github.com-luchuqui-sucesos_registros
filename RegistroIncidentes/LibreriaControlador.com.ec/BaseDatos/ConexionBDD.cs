@@ -1004,5 +1004,46 @@ namespace LibreriaControlador.com.ec.BaseDatos
         }
 
         #endregion
+
+        #region Miembros de interfaceBDD
+
+
+        public string validarCodigoIndicedentee(string codigoIncidente)
+        {
+            SqlCommand cmd = null;
+            cmd = new SqlCommand("select * from registro_incidentes where codigo_incidente = @codigo_incidente", conn);
+            //cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@codigo_incidente", codigoIncidente);
+            
+            string mensaje = "No existe Registro";
+            try
+            {
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable tb = new DataTable("ParametroBean");
+                da.Fill(tb);
+                if (tb.Rows.Count > 0) {
+                    mensaje = "Existe Registro";
+                }
+                return mensaje;
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                logs.escritura_archivo_string_ex(ex);
+                throw new ExpObtenerRegistro(ex.Message);
+            }
+            catch (ArgumentNullException ex)
+            {
+                logs.escritura_archivo_string_ex(ex);
+                throw new ExpObtenerRegistro(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                logs.escritura_archivo_string_ex(ex);
+                throw new Exception(ex.Message);
+            }
+        }
+
+        #endregion
     }
 }

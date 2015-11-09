@@ -35,8 +35,8 @@
 <div>
 <asp:GridView ID="GridViewIncidente" HeaderStyle-BackColor="#e94f31" HeaderStyle-ForeColor="White"  
                 runat="server" AutoGenerateColumns="False" AllowPaging = "True" 
-                 CellSpacing = "1" 
-        onpageindexchanging="GridViewIncidente_PageIndexChanging" Font-Size="Small">
+                 CellSpacing = "1" onrowdatabound="pieDePaginaDataGrid"
+        onpageindexchanging="GridViewIncidente_PageIndexChanging" Font-Size="Small" ShowFooter="True">
                 <Columns>  
                     <asp:BoundField DataField="codigoIncidente" HeaderText="# Incidente" 
                         ItemStyle-Width="100" >  
@@ -55,6 +55,7 @@
                 </Columns>  
 
 <HeaderStyle BackColor="#E94F31" ForeColor="White"></HeaderStyle>
+
             </asp:GridView>  
 </div>
 </asp:Content>

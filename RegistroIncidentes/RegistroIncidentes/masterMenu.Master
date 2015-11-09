@@ -91,7 +91,7 @@
 		    <ul>
 		    <li><a href="ReporteSucesos.aspx">Incidentes </a></li>
 		    <li><a href="ReporteAsignacionSuceso.aspx">Asigación</a></li>
-		    <%--<li><a href="SubirArchivo.aspx">Comparar Incidencias</a></li>--%>
+		    <li><a href="SubirArchivo.aspx">Comparar Incidencias</a></li>
 		    </ul>
 		</li>
 		<li><a href=""><span>Opciones</span></a>

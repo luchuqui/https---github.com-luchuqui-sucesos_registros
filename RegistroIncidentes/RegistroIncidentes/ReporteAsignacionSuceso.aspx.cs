@@ -76,8 +76,33 @@ namespace RegistroIncidentes
             {
                 lblMensajeError.Text = "";
             }
+            
             GridViewIncidente.DataSource = lsSucesosReg;
             GridViewIncidente.DataBind();
+        }
+
+        private decimal _Total = 0;
+        public void pieDePaginaDataGrid(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    //_Total += Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "codigoIncidente"));
+                    _Total++;
+                }
+                else if (e.Row.RowType == DataControlRowType.Footer)
+                {
+                    e.Row.Cells[3].Text = "TOTAL:";
+                    e.Row.Cells[4].Text = lsSucesosReg.Count.ToString();
+                    e.Row.Cells[4].HorizontalAlign = HorizontalAlign.Right;
+                    e.Row.Font.Bold = true;
+                }
+            }
+            catch (Exception err)
+            {
+                string error = err.Message.ToString() + " - " + err.Source.ToString();
+            }
         }
 
         public void btn_exportar_datos(object sender, EventArgs e)

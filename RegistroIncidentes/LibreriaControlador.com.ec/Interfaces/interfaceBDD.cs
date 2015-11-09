@@ -29,7 +29,7 @@ namespace LibreriaControlador.com.ec.Interfaces
         string insertarActulizarSuceso(sucesoBean suceso, bool insertar);
         List<TipSistemasBean> obtenerTipoSistemas(string estado);
         List<ParametroConfiguracion> obtenerParametroConfiguracion(int codigoParametro,string estado);
-
+        string validarCodigoIndicedentee(string codigoIncidente);
     }
 
 }

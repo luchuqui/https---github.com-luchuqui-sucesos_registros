@@ -5,7 +5,7 @@
     <br />
 <div align="center">
 <asp:Panel ID = "panelBusqueda" runat= "server" DefaultButton = "btnBuscar">
-<table style="width: 636px">
+<table width = "100%">
 <tr>
 <td> <label>Buscar por :</label></td>
 <td colspan = "1"><asp:RadioButtonList ID = "rbgSeleccion" runat = "server" 
@@ -17,6 +17,20 @@ RepeatDirection = "Horizontal" AutoPostBack = "true" OnSelectedIndexChanged = "h
         OnClick = "btn_busqueda_datosBy" TabIndex="4"/></td>
 <td><asp:Button ID = "btnNuevo" runat = "server" Text = "Nuevo" Width="75px"
 OnClick = "nuevo_registro_incidente" TabIndex="5"/></td>
+<td rowspan="4" align = "center">
+                <table border= "1" width = "100%" cellspacing = "2">
+                <tr align = "center">
+                <td colspan = "2" align = "center">
+                <label style="text-transform: uppercase; color: #000000; font-family: 'Arial Black'">DETALLE</label>
+                </td>
+                </tr>
+                <tr>
+                <td><label>#Incidentes No procesados:</label></td>
+                <td align = "left"><asp:Label ID="lblNoProcesados" runat = "server"></asp:Label></td>
+                </tr>
+            </table>
+
+</td>
 </tr>
     <tr>
         <td colspan = "1"><asp:Label ID ="lblCodigo" runat = "server">Código Incidente </asp:Label></td>
