@@ -167,7 +167,8 @@ namespace RegistroIncidentes
             Response.Clear();
             Response.Buffer = true;
             Response.ContentType = "application/vnd.ms-excel";
-            Response.AddHeader("Content-Disposition", "attachment;filename=validar_" + DatosExcel.Caption);
+            string[] datos = DatosExcel.Caption.Split('.');
+            Response.AddHeader("Content-Disposition", "attachment;filename=validar_" + datos[0] + ".xls");
             Response.Charset = "UTF-8";
             Response.ContentEncoding = Encoding.Default;
             Response.Write(sb.ToString());
