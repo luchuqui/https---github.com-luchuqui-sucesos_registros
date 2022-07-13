@@ -1,8 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32510.428
-MinimumVisualStudioVersion = 10.0.40219.1
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegistroIncidentes", "RegistroIncidentes\RegistroIncidentes.csproj", "{79FCDA73-C4D7-4FF6-B423-273C351F19EA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibreriaControlador.com.ec", "LibreriaControlador.com.ec\LibreriaControlador.com.ec.csproj", "{AAD1DA2D-D18F-4DB8-B1FF-75B29008AB0C}"
@@ -24,8 +22,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D51DEC53-291C-4CED-BB1E-990B7295E03A}
 	EndGlobalSection
 EndGlobal
